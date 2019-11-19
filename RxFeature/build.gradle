@@ -23,7 +23,7 @@ android {
 
         desc = 'Summarize the tools or methods commonly used in routine development' // 项目描述，可选项
 
-        website = '[https://github.com/huangweicai/infinitus_demo_lib'//](https://github.com/huangweicai/infinitus_demo_lib') // 项目站点，可选项
+        website = 'https://github.com/903531306/mevenDemo'//](https://github.com/huangweicai/infinitus_demo_lib') // 项目站点，可选项
 
         }
     buildTypes {
