@@ -1,0 +1,57 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'// 新增
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    publish { // 新增
+
+        userOrg = 'alone903531306' // 注册bintray时的username
+
+        groupId = 'com_vondear_rxfeature' // 项目包名
+
+        artifactId = 'mylibrary' // 项目名
+
+        publishVersion = '1.0.2' // 发布版本号
+
+        desc = 'Summarize the tools or methods commonly used in routine development' // 项目描述，可选项
+
+        website = '[https://github.com/huangweicai/infinitus_demo_lib'//](https://github.com/huangweicai/infinitus_demo_lib') // 项目站点，可选项
+
+        }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compileOnly 'com.android.support:appcompat-v7:28.0.0'
+    compileOnly 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //支付宝 支付包
+    compileOnly files('libs/alipaySdk-20180403.jar')
+    //微信登录，支付，分享包
+    compileOnly 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:1.4.0'
+    //okgo 网络请求框架包
+    compileOnly 'com.lzy.net:okgo:3.0.4'
+    //gson json工具类 google解析Json的库
+    compileOnly 'com.google.code.gson:gson:2.8.2'
+    //Zxing核心包
+    implementation 'com.google.zxing:core:3.3.0'
+    compileOnly project(':RxKit')
+    compileOnly project(':RxUI')
+//    implementation project(':RxCamera')
+}
